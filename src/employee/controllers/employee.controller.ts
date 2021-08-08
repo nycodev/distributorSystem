@@ -3,7 +3,7 @@ import { EmployeeDto } from '../dto/employee-dto';
 import { EmployeeService } from '../services/employee.service';
 
 
-@Controller('employee')
+@Controller('employees')
 export class EmployeeController {
   constructor(private employeeService: EmployeeService) { }
 

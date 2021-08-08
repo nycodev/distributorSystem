@@ -1,3 +1,4 @@
+import { ClientService } from './client/services/client.service';
 import { EmployeeModule } from './employee/employee.module';
 import { Module } from '@nestjs/common';
 
@@ -6,6 +7,7 @@ import { Module } from '@nestjs/common';
   imports: [
     EmployeeModule,],
   controllers: [],
-  providers: [],
+  providers: [
+    ClientService,],
 })
 export class AppModule { }
