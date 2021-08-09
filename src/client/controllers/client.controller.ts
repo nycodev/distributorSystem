@@ -1,12 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { create } from 'domain';
 import { ClientDto } from '../dto/client-dto';
 import { ClientService } from '../services/client.service';
 
 @Controller('clients')
 export class ClientController {
-  constructor(private clientService: ClientService) {}
-
+  constructor(private clientService: ClientService) { }
 
   @Post()
   async create(@Body() clientDto: ClientDto): Promise<ClientDto[]> {
@@ -36,4 +34,4 @@ export class ClientController {
   async remove(@Param('id') id: string): Promise<void> {
     await this.clientService.remove(id)
   }
-}  
+}
