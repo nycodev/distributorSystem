@@ -29,8 +29,9 @@ export class EmployeeService {
     return this.employeeModel.findOneAndUpdate({ _id: id }, updateEmployeeDto);
   }
 
-  async remove(id: string): Promise<void> {
-    this.employeeModel.findOneAndRemove({ _id: id });
+  async remove(id: string): Promise<any> {
+
+    return await this.employeeModel.findOneAndRemove({ _id: id });
   }
 
 }

@@ -32,6 +32,6 @@ export class ClientController {
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<void> {
-    await this.clientService.remove(id)
+    return await this.clientService.remove(id)
   }
 }

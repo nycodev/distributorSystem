@@ -33,7 +33,7 @@ export class EmployeeController {
 
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<void> {
-    await this.employeeService.remove(id)
+    return await this.employeeService.remove(id)
 
   }
 }
