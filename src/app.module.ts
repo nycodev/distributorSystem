@@ -1,14 +1,14 @@
-import { ClientService } from './client/services/client.service';
 import { EmployeeModule } from './employee/employee.module';
 import { Module } from '@nestjs/common';
 import { ClientModule } from './client/client.module';
-
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [ClientModule,
-    EmployeeModule,],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost:27017/distributor'),
+    ClientModule,
+    EmployeeModule],
   controllers: [],
-  providers: [
-    ClientService,],
+  providers: [],
 })
 export class AppModule { }

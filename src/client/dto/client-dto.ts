@@ -4,10 +4,8 @@ import { IsNumber, IsString } from "class-validator";
 export class ClientDto {
   @ApiProperty()
   @IsNumber()
-  cnpj: number
+  cnpj: number;
   @ApiProperty()
   @IsString()
-  adress: string
-
-
+  address: string;
 }
