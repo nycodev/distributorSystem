@@ -4,8 +4,9 @@ import { Model } from 'mongoose';
 import {
   ProductDocument,
   ProductEntity,
-} from 'src/client/schemas/product.schema';
+} from 'src/product/schemas/product.schema';
 import { ProductDto } from '../dto/product-dto';
+import { UpdateProductDto } from '../dto/update-product-dto';
 
 @Injectable()
 export class ProductService {
@@ -18,17 +19,23 @@ export class ProductService {
     return new this.productModel(productDto).save();
   }
 
-  async findAll(): Promise<ProductDto[]> {
-    return;
+  async findAll(): Promise<ProductEntity[]> {
+    const result = this.productModel.find();
+    return result;
   }
 
-  async findOne(id: string): Promise<ProductDto> {
-    return;
+  async findOne(id: string): Promise<ProductEntity> {
+    return this.productModel.findById(id);
   }
 
-  async update(id: string, productDto: ProductDto): Promise<ProductDto> {
-    return;
+  async update(
+    id: string,
+    updateProductDto: UpdateProductDto,
+  ): Promise<ProductEntity> {
+    return this.productModel.findOneAndUpdate({ _id: id }, updateProductDto);
   }
 
-  async remove(id: string): Promise<void> {}
+  async remove(id: string): Promise<any> {
+    return await this.productModel.findOneAndRemove({ _id: id });
+  }
 }

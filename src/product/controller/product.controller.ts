@@ -34,7 +34,7 @@ export class ProductController {
     return productDtoResponse;
   }
 
-  @Patch('id')
+  @Patch(':id')
   async update(
     @Param('id') id: string,
     @Body() productDto: ProductDto,
