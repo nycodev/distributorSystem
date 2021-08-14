@@ -5,14 +5,14 @@ export type EmployeeDocument = EmployeeEntity & Document;
 
 @Schema()
 export class EmployeeEntity {
-    @Prop()
-    name: string
-    @Prop()
-    role: string
-    @Prop()
-    email: string
-    @Prop()
-    password: string
+  @Prop()
+  name: string;
+  @Prop()
+  role: string;
+  @Prop()
+  email: string;
+  @Prop()
+  password: string;
 }
 
 export const EmployeeSchema = SchemaFactory.createForClass(EmployeeEntity);

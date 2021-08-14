@@ -7,31 +7,35 @@ import { UpdateEmployeeDto } from '../dto/update-employee-dto';
 
 @Injectable()
 export class EmployeeService {
-  constructor(@InjectModel(EmployeeEntity.name) private employeeModel: Model<EmployeeDocument>) { }
+  constructor(
+    @InjectModel(EmployeeEntity.name)
+    private employeeModel: Model<EmployeeDocument>,
+  ) {}
 
   async create(employeeDto: EmployeeDto): Promise<EmployeeEntity> {
-    return new this.employeeModel(employeeDto).save()
+    return new this.employeeModel(employeeDto).save();
   }
 
   async findAll(): Promise<EmployeeEntity[]> {
-    const result = this.employeeModel.find()
+    const result = this.employeeModel.find();
     // if (!result) {
     //   throw new HttpException("NOT FOUND", HttpStatus.NOT_FOUND)
     // }
-    return result
+    return result;
   }
 
   async findOne(id: string): Promise<EmployeeEntity> {
     return this.employeeModel.findById(id);
   }
 
-  async update(id: string, updateEmployeeDto: UpdateEmployeeDto): Promise<EmployeeEntity> {
+  async update(
+    id: string,
+    updateEmployeeDto: UpdateEmployeeDto,
+  ): Promise<EmployeeEntity> {
     return this.employeeModel.findOneAndUpdate({ _id: id }, updateEmployeeDto);
   }
 
   async remove(id: string): Promise<any> {
-
     return await this.employeeModel.findOneAndRemove({ _id: id });
   }
-
 }
