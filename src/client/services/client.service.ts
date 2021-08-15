@@ -3,39 +3,36 @@ import { ClientDto } from '../dto/client-dto';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { ClientEntity, ClientDocument } from './../schemas/client.schema';
-import { UpdateEmployeeDto } from '../dto/update-employee-dto';
+import { UpdateClientDto } from '../dto/update-client-dto';
 
 @Injectable()
-export class EmployeeService {
+export class ClientService {
   constructor(
-    @InjectModel(EmployeeEntity.name)
-    private employeeModel: Model<EmployeeDocument>,
+    @InjectModel(ClientEntity.name)
+    private clientModel: Model<ClientDocument>,
   ) {}
 
-  async create(employeeDto: EmployeeDto): Promise<EmployeeEntity> {
-    return new this.employeeModel(employeeDto).save();
+  async create(clientDto: ClientDto): Promise<ClientEntity> {
+    return new this.clientModel(ClientDto).save();
   }
 
-  async findAll(): Promise<EmployeeEntity[]> {
-    const result = this.employeeModel.find();
-    // if (!result) {
-    //   throw new HttpException("NOT FOUND", HttpStatus.NOT_FOUND)
-    // }
+  async findAll(): Promise<ClientEntity[]> {
+    const result = this.clientModel.find();
     return result;
   }
 
-  async findOne(id: string): Promise<EmployeeEntity> {
-    return this.employeeModel.findById(id);
+  async findOne(id: string): Promise<ClientEntity> {
+    return this.clientModel.findById(id);
   }
 
   async update(
     id: string,
-    updateEmployeeDto: UpdateEmployeeDto,
-  ): Promise<EmployeeEntity> {
-    return this.employeeModel.findOneAndUpdate({ _id: id }, updateEmployeeDto);
+    updateClientDto: UpdateClientDto,
+  ): Promise<ClientEntity> {
+    return this.clientModel.findOneAndUpdate({ _id: id }, updateClientDto);
   }
 
   async remove(id: string): Promise<any> {
-    return await this.employeeModel.findOneAndRemove({ _id: id });
+    return await this.clientModel.findOneAndRemove({ _id: id });
   }
 }

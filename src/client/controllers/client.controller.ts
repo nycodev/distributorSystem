@@ -1,12 +1,5 @@
 import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
+  Body,  Controller,  Delete,  Get,  Param,  Patch,  Post,} from '@nestjs/common';
 import { ClientDto } from '../dto/client-dto';
 import { ClientService } from '../services/client.service';
 

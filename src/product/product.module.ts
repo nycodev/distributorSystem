@@ -3,7 +3,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ProductController } from './controller/product.controller';
 import { ProductEntity, ProductSchema } from './schemas/product.schema';
 import { ProductService } from './services/product.service';
-
 @Module({
   imports: [
     MongooseModule.forFeature([

@@ -18,9 +18,6 @@ export class EmployeeService {
 
   async findAll(): Promise<EmployeeEntity[]> {
     const result = this.employeeModel.find();
-    // if (!result) {
-    //   throw new HttpException("NOT FOUND", HttpStatus.NOT_FOUND)
-    // }
     return result;
   }
 

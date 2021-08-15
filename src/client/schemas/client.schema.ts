@@ -11,4 +11,4 @@ export class ClientEntity {
   address: string;
 }
 
-export const EmployeeSchema = SchemaFactory.createForClass(EmployeeEntity);
+export const ClientSchema = SchemaFactory.createForClass(ClientEntity);
