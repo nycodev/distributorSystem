@@ -1,3 +1,4 @@
+import { SupplierModule } from './supplier/supplier.module';
 import { ProductModule } from './product/product.module';
 import { EmployeeModule } from './employee/employee.module';
 import { Module } from '@nestjs/common';
@@ -6,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
+    SupplierModule,
     ProductModule,
     MongooseModule.forRoot('mongodb://localhost:27017/distributor'),
     ClientModule,
@@ -14,4 +16,4 @@ import { MongooseModule } from '@nestjs/mongoose';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }
