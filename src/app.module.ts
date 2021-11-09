@@ -11,7 +11,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     StorageModule,
     SupplierModule,
     ProductModule,
-    MongooseModule.forRoot('mongodb://localhost:27017/distributor'),
+    MongooseModule.forRoot('mongodb+srv://DB:teste123@cluster0.igzt0.mongodb.net/Cluster0?retryWrites=true&w=majority'),
     ClientModule,
     EmployeeModule,
   ],
